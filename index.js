@@ -21,12 +21,19 @@ function showWeather(response) {
   let temp = document.querySelector("#temperature");
   let temperature = Math.round(response.data.main.temp);
   temp.innerHTML =temperature;
+  let humid = document.querySelector("#humidity");
+  let humidity = Math.round(response.data.main.humidity);
+  humid.innerHTML = humidity;
+  let windSpeed = document.querySelector("#wind");
+  let windC = Math.round(response.data.wind.speed);
+  windSpeed.innerHTML = windC;
+  let cityCity = response.data.name;
+  city.innerHTML = cityCity;
 }
 
 function citySearch(event) {
   event.preventDefault();
   let cityName = result.value;
-  city.innerHTML = result.value;
   let apiKey = "0821c8cf6027f99510009d583653b393";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
   axios.get(url).then(showWeather);
