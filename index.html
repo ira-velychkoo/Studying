@@ -38,8 +38,18 @@
 <div class="container cityName">
     <p class="cityName" id="nameChange">Paris</p> 
 </div>
-    <p class="status" id="temperature">24°C</p> 
-    <p class="status" id="info">Mostly sunny and very warm</p> 
+<div class="container">
+  <div class="row">
+    <div class="col-6"><p class="status" id="temperature">24</p>°C|°F</div>
+    <div class="col-6">
+      <ul>
+        <li>Precipitation: <span id="precipitation">0</span>%</li>
+        <li>Humidity: <span id="humidity">23</span>%</li>
+        <li>Wind: <span id="wind">2</span> m/h</li>
+      </ul>
+    </div>
+  </div>
+</div>
 <div class="accordion" id="moreWeather">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
