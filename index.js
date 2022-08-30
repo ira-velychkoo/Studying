@@ -29,6 +29,12 @@ function showWeather(response) {
   windSpeed.innerHTML = windC;
   let cityCity = response.data.name;
   city.innerHTML = cityCity;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function citySearch(event) {
@@ -38,6 +44,7 @@ function citySearch(event) {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
   axios.get(url).then(showWeather);
 }
+
 let city = document.querySelector("#nameChange");
 let result = document.querySelector("#inputC");
 let citySelect = document.querySelector("#city-form");
@@ -58,4 +65,3 @@ function navigation (event) {
 }
 let locationSelect = document.querySelector(".fa-location-dot");
 locationSelect.addEventListener("click", navigation);
-
