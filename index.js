@@ -19,7 +19,8 @@ date.innerHTML = formatDate(new Date());
 
 function showWeather(response) {
   let temp = document.querySelector("#temperature");
-  let temperature = Math.round(response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
+  let temperature = Math.round(celsiusTemperature);
   temp.innerHTML =temperature;
   let humid = document.querySelector("#humidity");
   let humidity = Math.round(response.data.main.humidity);
@@ -39,18 +40,26 @@ function showWeather(response) {
   description.innerHTML = response.data.weather[0].description;
 }
 
-function citySearch(event) {
-  event.preventDefault();
-  let cityName = result.value;
+function search(city) {
   let apiKey = "0821c8cf6027f99510009d583653b393";
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
-  axios.get(url).then(showWeather);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showWeather);
 }
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#inputC");
+  search(cityInputElement.value);
+}
+
+let form = document.querySelector("#city-form");
+form.addEventListener("submit", handleSubmit);
+
+search("New York");
 
 let city = document.querySelector("#nameChange");
 let result = document.querySelector("#inputC");
-let citySelect = document.querySelector("#city-form");
-citySelect.addEventListener("click", citySearch);
+
 
 
 function retrievePosition(position) {
@@ -67,3 +76,25 @@ function navigation (event) {
 }
 let locationSelect = document.querySelector(".fa-location-dot");
 locationSelect.addEventListener("click", navigation);
+
+function showFarenheitTemperature (event) {
+  event.preventDefault();
+  let farenheitTemperature = (celsiusTemperature * 9)/5 + 32;
+  let temparatureElement = document.querySelector ("#temperature");
+  temparatureElement.innerHTML = Math.round(farenheitTemperature);
+
+}
+
+function showCelciusTemperature (event) {
+  event.preventDefault();
+  let temparatureElement = document.querySelector ("#temperature");
+  temparatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let farenheitLink = document.querySelector("#faren");
+farenheitLink.addEventListener ("click", showFarenheitTemperature);
+
+let celciusLink = document.querySelector("#celcius");
+celciusLink.addEventListener ("click", showCelciusTemperature);
