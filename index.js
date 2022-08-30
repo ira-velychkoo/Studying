@@ -82,13 +82,17 @@ function showFarenheitTemperature (event) {
   let farenheitTemperature = (celsiusTemperature * 9)/5 + 32;
   let temparatureElement = document.querySelector ("#temperature");
   temparatureElement.innerHTML = Math.round(farenheitTemperature);
-
+  celciusLink.classList.remove("active");
+  farenheitLink.classList.add("active");
+  celciusLink.classList.add("default");
 }
 
 function showCelciusTemperature (event) {
   event.preventDefault();
   let temparatureElement = document.querySelector ("#temperature");
   temparatureElement.innerHTML = Math.round(celsiusTemperature);
+  celciusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
 }
 
 let celsiusTemperature = null;

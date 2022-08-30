@@ -7,6 +7,12 @@ input {
   width: 80%;
   opacity: 70%;
 }
+.active:hover {
+  color: #333333;
+}
+.default:hover {
+  color: #333333;
+}
 input.fa-location-dot {
   display: inline;
   width: 5%;
@@ -42,6 +48,17 @@ button {
   background-color: #333333;
   color: #eeeedd;
 }
+.default {
+  text-decoration: none;
+  cursor: default;
+  color: #e3963e;
+}
+.active {
+  color: #333333;
+  text-decoration: none;
+  cursor: default;
+}
+
 .Inputsearch {
   margin: 0;
   padding: 0;
