@@ -24,6 +24,11 @@ h3.today {
   font-size: 24px;
   text-align: center;
 }
+ul.conditions {
+  list-style: none;
+  display: inline;
+  font-size: 16px;
+}
 button {
   border: none;
 }
@@ -75,6 +80,9 @@ button {
   background-color: #f0ece2;
   font-family: "Rajdhani", sans-serif;
 }
+strong {
+  color: #333333;
+}
 p.status {
   display: inline;
   margin-left: 20px;
@@ -111,6 +119,11 @@ p.status {
 }
 .boxes {
   display: inline;
+}
+.weatherTemperature .unitsTemp {
+  position: relative;
+  top: -30px;
+  font-size: 24px;
 }
 #temperatureBox {
   font-family: "Rajdhani", sans-serif;

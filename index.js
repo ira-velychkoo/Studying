@@ -20,7 +20,7 @@ date.innerHTML = formatDate(new Date());
 function showWeather(response) {
   let temp = document.querySelector("#temperature");
   let temperature = Math.round(response.data.main.temp);
-  temp.innerHTML = `${temperature}°C`;
+  temp.innerHTML =temperature;
 }
 
 function citySearch(event) {
